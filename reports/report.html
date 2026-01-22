@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Static Analysis Report</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 2rem; }
+      section { border-bottom: 1px solid #eee; padding-bottom: 1rem; margin-bottom: 1rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Static Analysis Report</h1>
+    <section>
+  <h2>SRP: GodClass</h2>
+  <p><strong>File:</strong> test_code/sample.rb</p>
+  <p><strong>Score:</strong> 1.0 | <strong>Confidence:</strong> 0.95</p>
+  <p><strong>Reason:</strong> Class exposes 7 methods (limit: 4).</p>
+  <p><strong>Justification:</strong> Heuristic fallback confirmation based on strong static signals.</p>
+  <p><strong>Suggested Fix:</strong> Extract collaborators and follow the cited principle.</p>
+</section>
+
+<section>
+  <h2>ENCAPSULATION: GodClass</h2>
+  <p><strong>File:</strong> test_code/sample.rb</p>
+  <p><strong>Score:</strong> 1.0 | <strong>Confidence:</strong> 0.95</p>
+  <p><strong>Reason:</strong> Has 100.0% public methods (limit: 60.0%).</p>
+  <p><strong>Justification:</strong> Heuristic fallback confirmation based on strong static signals.</p>
+  <p><strong>Suggested Fix:</strong> Extract collaborators and follow the cited principle.</p>
+</section>
+
+  </body>
+</html>

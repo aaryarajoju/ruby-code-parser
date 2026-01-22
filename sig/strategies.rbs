@@ -1,0 +1,16 @@
+
+# --- Stage 2 (Enricher) Strategies ---
+interface _TypeInferenceStrategy
+  def infer_type: (SyntaxTree::Node node) -> String
+end
+
+# --- Stage 3 (Detector) Strategies ---
+interface _HeuristicStrategy
+  def check: (SyntaxTree::Node node) -> ViolationCandidate?
+end
+
+# --- Stage 4 (Analyzer) Strategies ---
+interface _ValidationStrategy
+  def validate: (ViolationCandidate candidate) -> ValidatedViolation
+end
+

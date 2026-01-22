@@ -1,0 +1,100 @@
+# Default Configuration for Ruby Code Parser
+# Copy this file to config.yml and customize as needed
+
+# GitHub API settings
+github:
+  # Token is typically set via GITHUB_TOKEN environment variable
+  # token: null
+  per_page: 100
+
+# Analysis settings
+analysis:
+  temp_dir: temp_downloads
+  cleanup_temp: true
+  verbose: true
+  min_confidence: 0.6
+  # Only report violations in/near changed lines (recommended for PR review)
+  # Full file is still analyzed for proper semantic context
+  report_only_changed: true
+  # How many lines from a diff change to consider "near" (for report_only_changed)
+  changed_line_tolerance: 10
+
+# Detector configurations
+# Set enabled: false to disable a detector
+# Adjust thresholds to customize sensitivity
+detectors:
+  # Single Responsibility Principle
+  srp:
+    enabled: true
+    max_methods: 7           # Max methods per class
+    max_instantiations: 5    # Max direct instantiations
+
+  # Open/Closed Principle
+  ocp:
+    enabled: true
+    max_conditionals: 2      # Max type-checking conditionals
+
+  # Liskov Substitution Principle
+  lsp:
+    enabled: true
+    # Detects arity mismatches in overridden methods
+
+  # Dependency Inversion Principle
+  dip:
+    enabled: true
+    max_concretions: 3       # Max concrete instantiations
+
+  # Interface Segregation Principle
+  isp:
+    enabled: true
+    max_interface_methods: 6 # Max methods in a module
+
+  # Law of Demeter
+  law_of_demeter:
+    enabled: true
+    max_chain: 3             # Max method chain length
+
+  # DRY - Don't Repeat Yourself
+  dry:
+    enabled: true
+    min_duplicates: 2        # Min copies to report
+    max_reports: 5           # Max duplicate reports
+
+  # Information Expert
+  information_expert:
+    enabled: true
+    min_external_calls: 4    # Min external accesses to flag
+    tolerance: 1             # Tolerance for ivar vs external ratio
+
+  # Encapsulation
+  encapsulation:
+    enabled: true
+    max_attr_accessors: 3    # Max attr_accessor declarations
+    max_public_ratio: 0.85   # Max ratio of public methods
+    min_methods: 5           # Min methods to check ratio
+
+  # Overuse of Class Methods
+  overuse_class_methods:
+    enabled: true
+    min_class_methods: 4     # Min class methods to flag
+    max_instance_methods: 1  # Max instance methods allowed
+
+# LLM settings for validation (optional)
+llm:
+  enabled: false
+  provider: openai
+  model: gpt-4o-mini
+  temperature: 0.2
+  # API key is typically set via OPENAI_API_KEY environment variable
+  # api_key: null
+
+# Report generation settings
+reports:
+  output_dir: reports
+  formats:
+    - json
+    - md
+    - html
+  include_context: true
+  max_context_lines: 10
+

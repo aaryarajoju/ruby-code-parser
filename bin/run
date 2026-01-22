@@ -1,0 +1,5 @@
+require_relative '../lib/ruby_code_parser/facade'
+
+facade = RubyCodeParser::Facade.new
+report = facade.run_analysis('path/to/target/code.rb')
+puts report

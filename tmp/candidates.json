@@ -1,0 +1,24 @@
+[
+  {
+    "type": "SRP",
+    "file": "test_code/sample.rb",
+    "class": "GodClass",
+    "score": 1.0,
+    "reason": "Class exposes 7 methods (limit: 4).",
+    "location": {
+      "line": 5
+    },
+    "context": "class GodClass\n  def initialize\n    #...\n  end\n\n  def load_users\n    #...\n  end"
+  },
+  {
+    "type": "ENCAPSULATION",
+    "file": "test_code/sample.rb",
+    "class": "GodClass",
+    "score": 1.0,
+    "reason": "Has 100.0% public methods (limit: 60.0%).",
+    "location": {
+      "line": 5
+    },
+    "context": "class GodClass\n  def initialize\n    #...\n  end\n\n  def load_users\n    #...\n  end"
+  }
+]

@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+# /bin/run_analysis
+
+# Load the bundled gems
+require 'bundler/setup'
+
+# Load our entire application
+require_relative '../lib/ruby_code_parser'
+
+# --- Get the target file from the command line ---
+file_path = ARGV[0]
+if file_path.nil?
+  puts "Error: Please provide a Ruby file to analyze."
+  puts "Usage:./bin/run_analysis <path/to/your/file.rb>"
+  exit 1
+end
+
+unless File.exist?(file_path)
+  puts "Error: File not found at #{file_path}"
+  exit 1
+end
+
+puts "Analyzing #{file_path}..."
+
+# --- Run the Facade ---
+begin
+  # 1. Instantiate the Facade.
+  #    The `dry-auto_inject` gem handles injecting all
+  #    the dependencies from the container automatically.
+  facade = RubyCodeParser::Facade.new
+  
+  # 2. Run the analysis
+  facade.run_analysis(file_path)
+
+rescue => e
+  puts "\n--- An error occurred ---"
+  puts e.message
+  puts e.backtrace
+  exit 1
+end

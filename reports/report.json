@@ -1,0 +1,30 @@
+[
+  {
+    "type": "SRP",
+    "file": "test_code/sample.rb",
+    "class": "GodClass",
+    "score": 1.0,
+    "reason": "Class exposes 7 methods (limit: 4).",
+    "location": {
+      "line": 5
+    },
+    "context": "class GodClass\n  def initialize\n    #...\n  end\n\n  def load_users\n    #...\n  end",
+    "confidence": 0.95,
+    "justification": "Heuristic fallback confirmation based on strong static signals.",
+    "suggestion": "Extract collaborators and follow the cited principle."
+  },
+  {
+    "type": "ENCAPSULATION",
+    "file": "test_code/sample.rb",
+    "class": "GodClass",
+    "score": 1.0,
+    "reason": "Has 100.0% public methods (limit: 60.0%).",
+    "location": {
+      "line": 5
+    },
+    "context": "class GodClass\n  def initialize\n    #...\n  end\n\n  def load_users\n    #...\n  end",
+    "confidence": 0.95,
+    "justification": "Heuristic fallback confirmation based on strong static signals.",
+    "suggestion": "Extract collaborators and follow the cited principle."
+  }
+]
